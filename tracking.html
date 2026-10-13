@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Live Tracking</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+    <h2>📍 Live Tracking Active</h2>
+
+    <p>
+        Your location is being shared every <b>10 seconds</b><br>
+        until you mark yourself safe.
+    </p>
+
+    <div id="location" style="margin-top:15px; font-size:14px;">
+        Waiting for GPS...
+    </div>
+
+    <form action="/home" style="margin-top:25px;">
+        <button>I’m Safe</button>
+    </form>
+</div>
+
+<script>
+setInterval(() => {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(pos => {
+            document.getElementById("location").innerHTML =
+                "Latitude: " + pos.coords.latitude +
+                "<br>Longitude: " + pos.coords.longitude;
+        });
+    }
+}, 10000);
+</script>
+
+</body>
+</html>

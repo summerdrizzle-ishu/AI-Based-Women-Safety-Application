@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SOS Evidence</title>
+</head>
+<body>
+
+<h2>🚨 Emergency Evidence</h2>
+
+<p><strong>Time:</strong> {{ time }}</p>
+
+<h3>📍 Location</h3>
+<a href="https://maps.google.com/?q={{ lat }},{{ lon }}" target="_blank">
+    Open in Google Maps
+</a>
+
+<br><br>
+
+<iframe
+    width="100%"
+    height="300"
+    src="https://maps.google.com/maps?q={{ lat }},{{ lon }}&z=15&output=embed">
+</iframe>
+
+<hr>
+
+<h3>📸 Captured Images</h3>
+
+{% for img in images %}
+    <img src="/{{ img }}" width="300" style="margin:10px;"><br>
+{% endfor %}
+
+</body>
+</html>

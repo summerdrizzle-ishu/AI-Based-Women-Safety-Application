@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "women-safety-system-4c2ea",
+  "private_key_id": "b409e24401ca8224306a6efedc9098434bca6e9e",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCu0T6URRPP6cBX\nQ6qYDziMFyfe99lAaXS9Obcqwr6XDXzSdHepKE6QO7uqJ7Sz1b1iRe4Lb1CVq/fB\nby5I8BFG843I8KmDtJFOLVzPQsAt1ZMlOVvtiAe4oCrae5PxuhcQhm+zas78Zkz7\nyc4kPvbvEvBsi3kyduyIiqdXL3WchBQXv9xq+1ENTX3PnQELwAERYvDARGQYIhu4\nqGUDFGlu7Iwv69pFE+e2vKiHcUD4tXEkcKzWQXzNh4svuu3VQPbNsDgVR0JFZwOR\nxjXl7QpN1yYM60XlvmGAnxx7D3zN/lQeW42zuM/tsDaqL37EuBXa+jhP4lkFRuFR\nBFLt77HzAgMBAAECggEALgSHsBkE75iNGIuH5xIupPXdeXyNtD5uS/da54cvC20x\n++ZLr3wcPixzKIXeM+6iNTHKSTlKobOMet9M9Ec5jQ9Ete3f+Xr5OvaG9UoRc59C\nZiyUrdC+k5OZ5Dxeg+Wj96Yj1jtZ9CfrwOXs/S6T6vf10OTgCPA0MHcrOLCWCZZt\nntkCnfT+Ac75T82G13L6lWCilUR0wzQwBLvxlxLDUn8FH96dVUiuqknqV1TaET46\nzuLmds/0I6LPdhszGr2iCU5EVECLuwVeYWMk1/vCF3/RVRzD402fgS9L2700P6BH\nX9DWf0z5zsf1KWKwhiGsv2Q7lsZp7CXzRXmswE0EGQKBgQDWdHzHnu6QnGwR7D/u\nl2U4x7npB4IG/arLSl4C47XIfG40vWdHq59zkCfQlXsX5I0Qjbr04lqqfH35ea8E\nirSbQEeJGMwaob60qeIukH1Xc/tiQHm88b5d4klCUnwjZOFiLJlMyUKl+l3/sBvv\nJRM6asnzjTSHJ7ZyIHEDaeb2yQKBgQDQrv97O7ELonOUSLQWaNeM9l8b3C4WzMSu\n1QYFc2+3uqfWftxQeiEBdzeIO3Ur465HY87X/NQlo0judyAkO9bJkmAmIXCvnFcY\nIVVQ1piShRFvAgi9appYeO+WKhLL8z6C9b1w5Yrx1tzlbCXywLIO+0Uj7a0ALZCP\nyQzIG4v02wKBgDOY40zEGHICsJ2/UcJ9+oSmyTwf6lD0R1uSEPxw/RO3nGxkBa1g\nxYRwcqPk0zD0dFw/PXQd4eKTAVw8wrc9CCcyWAPMS488yz18gkbhzMZ1yU3iZWfo\nYf0ErMugPO3nH7MXN+sZoUd97Y/PN2laaj3r45sNpk2+aE8dLxO7Ly7BAoGAB+Cz\nUEmek1vclRpxge8PRAkA6iJTsxSj0B3GjmofK4ZmU5iSZI9Xs6B2fjQQZknACH3i\nDxFCSPFzDV193yBLKWzXKFlW0apLN2P6voR7Wfyf/drLzaq6jOBz2u1XrE9Qas0w\nC5T+u8ZqrFZ60EEp95rQr1yHjVwq+uKSEvPHQsUCgYEAg6MLSUyGPtxwwgryXhkz\nLgdk+nW6SkvpoGkmy2BOqB5MTlpY9RTLtUmrJDQ1lBnxP9uEv6j39KGFPoWrIf+/\ngeYKvkBi+pvSgRBcGTlJzp0SNfLuN3RHcnH2XIdZkxLcqqX9l5MX8iZ1i15F7iCa\ne8bXlkU94WszdK4B+2pkO5w=\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-fbsvc@women-safety-system-4c2ea.iam.gserviceaccount.com",
+  "client_id": "112655408100788683424",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-fbsvc%40women-safety-system-4c2ea.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

@@ -1,0 +1,23 @@
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+<h2>Live Alerts</h2>
+
+<table border="1">
+<tr>
+<th>Latitude</th>
+<th>Longitude</th>
+<th>Risk</th>
+<th>Status</th>
+<th>Time</th>
+</tr>
+
+{% for a in alerts %}
+<tr>
+<td>{{a.latitude}}</td>
+<td>{{a.longitude}}</td>
+<td>{{a.risk_score}}</td>
+<td>{{a.status}}</td>
+<td>{{a.time}}</td>
+</tr>
+{% endfor %}
+</table>

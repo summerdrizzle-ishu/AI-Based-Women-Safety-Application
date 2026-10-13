@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Emergency SOS</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2>🚨 EMERGENCY SOS</h2>
+
+    <!-- STATUS -->
+    <p id="status">Press SOS if you feel unsafe</p>
+
+    <!-- HIDDEN FORM -->
+    <form id="sosForm" method="POST" action="/sos">
+        <input type="hidden" name="lat" id="lat">
+        <input type="hidden" name="lon" id="lon">
+    </form>
+
+    <!-- SEND SOS -->
+    <button class="action-btn" onclick="triggerSOS()">
+        🚨 SEND SOS
+    </button>
+
+    <!-- EMERGENCY CALL (DIAL PAD ONLY) -->
+    {% if phone %}
+    <button class="action-btn" onclick="openDialPad()">
+        📞 Call Emergency Contact
+    </button>
+    {% endif %}
+
+    <!-- INFO -->
+    <div style="margin-top:20px; font-size:14px;">
+        📍 Live tracking every 10 seconds<br>
+        📸 3 photos auto-captured<br>
+        🎙 AI distress voice triggered<br>
+        💬 WhatsApp alert sent automatically
+    </div>
+
+    <!-- SAFE -->
+    <form action="/home" style="margin-top:25px;">
+        <button>I’m Safe</button>
+    </form>
+
+</div>
+
+<script>
+let capturedImages = [];
+
+// ================= MAIN SOS FLOW =================
+function triggerSOS() {
+
+    document.getElementById("status").innerText =
+        "📸 Capturing evidence…";
+
+    // CAMERA FIRST (IMPORTANT)
+    navigator.mediaDevices.getUserMedia({
+        video: { facingMode: "user" },
+        audio: false
+    }).then(stream => {
+
+        const video = document.createElement("video");
+        video.srcObject = stream;
+        video.play();
+
+        const canvas = document.createElement("canvas");
+        canvas.width = 320;
+        canvas.height = 240;
+        const ctx = canvas.getContext("2d");
+
+        capturedImages = [];
+        let count = 0;
+
+        const interval = setInterval(() => {
+            ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+            capturedImages.push(canvas.toDataURL("image/jpeg"));
+            count++;
+
+            if (count === 3) {
+                clearInterval(interval);
+                stream.getTracks().forEach(t => t.stop());
+
+                uploadImages();
+                getLocationAndSendSOS();
+            }
+        }, 600);
+
+    }).catch(err => {
+        alert("❌ Camera permission denied!");
+        console.error(err);
+    });
+}
+
+// ================= UPLOAD IMAGES =================
+function uploadImages() {
+    fetch("/upload_images", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ images: capturedImages })
+    });
+}
+
+// ================= LOCATION + SOS =================
+function getLocationAndSendSOS() {
+
+    document.getElementById("status").innerText =
+        "📍 Getting live location…";
+
+    navigator.geolocation.getCurrentPosition(
+        pos => {
+
+            document.getElementById("lat").value = pos.coords.latitude;
+            document.getElementById("lon").value = pos.coords.longitude;
+
+            playAIVoice();
+            document.getElementById("sosForm").submit();
+            startLiveTracking();
+
+            document.getElementById("status").innerText =
+                "🚨 SOS sent successfully.";
+
+            // 🔴 OPTIONAL: auto-open dial pad after SOS
+            // Uncomment next 3 lines if you want
+            /*
+            setTimeout(() => {
+                openDialPad();
+            }, 2000);
+            */
+
+        },
+        () => alert("❌ Location permission denied!"),
+        { enableHighAccuracy: true }
+    );
+}
+
+// ================= LIVE TRACKING =================
+function startLiveTracking() {
+    setInterval(() => {
+        navigator.geolocation.getCurrentPosition(p => {
+            console.log("Live:", p.coords.latitude, p.coords.longitude);
+        });
+    }, 10000);
+}
+
+// ================= AI DISTRESS VOICE =================
+function playAIVoice() {
+
+    const msg =
+        "This is an emergency alert. I am in danger. Please help me immediately.";
+
+    const speech = new SpeechSynthesisUtterance(msg);
+    speech.lang = "en-US";
+    speech.rate = 0.9;
+    speech.pitch = 1;
+    speech.volume = 1;
+
+    window.speechSynthesis.speak(speech);
+}
+
+// ================= DIAL PAD ONLY (CORRECT) =================
+function openDialPad() {
+
+    // Optional AI voice before opening dialer
+    playAIVoice();
+
+    setTimeout(() => {
+        window.location.href = "tel:{{ phone }}";
+    }, 1500);
+}
+</script>
+
+</body>
+</html>

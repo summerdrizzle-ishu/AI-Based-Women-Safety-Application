@@ -1,0 +1,9 @@
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+<h2>AI Risk Predictor</h2>
+
+<form method="POST" action="/risk">
+Hour <input name="hour">
+User Density <input name="density">
+<button>Check</button>
+</form>

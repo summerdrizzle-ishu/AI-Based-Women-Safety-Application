@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Emergency Contact</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="card">
+
+<h2>Save Emergency Contact</h2>
+
+<form method="POST">
+<input name="phone" placeholder="Phone with country code" required>
+<button>Save</button>
+</form>
+
+<form action="/home">
+<button>Back</button>
+</form>
+
+</div>
+</div>
+
+</body>
+</html>
